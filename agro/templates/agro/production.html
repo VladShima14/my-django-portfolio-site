@@ -1,0 +1,12 @@
+{% extends 'agro/base.html' %}
+
+{% block content %}
+			<main>
+				<div class="content">
+					{% for top in topics %}
+                        <p><a class="product_a" href="{% url "agro:CategoryPage" top.id %}">{{ top.name }}</a></p>
+                    {% endfor %}
+				</div>
+			</main>
+
+{% endblock content %}

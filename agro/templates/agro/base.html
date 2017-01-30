@@ -1,0 +1,134 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" xmlns:http="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>ТД ТоргАгроСервис</title>
+	<link rel="shortcut icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
+	<link rel="stylesheet" href="{% static "css/reset.css" %}" />
+	<link rel="stylesheet" href="{% static "css/styles.css" %}?ver=1" />
+	<link rel="stylesheet" href="{% static "css/gallery.css"%}" />
+	<link rel="stylesheet" href="{% static "css/news.css" %}?ver=1.111" />
+    <link rel="stylesheet" href="{% static "css/feedback.css" %}" />
+    <link rel="stylesheet" href="{% static "css/contacts.css" %}" />
+	<link rel="stylesheet" href="{% static "css/item.css" %}" />
+    <link rel="stylesheet" href="{% static "css/section.css" %}?ver=1.4">
+
+	<script src=" http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="{% static "js/jquery.bxslider.min.js" %}"></script>
+	<link href="{% static "css/jquery.bxslider.css" %}" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.3.5/css/lightgallery.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.3.5/js/lightgallery.min.js"></script>
+	<script src={% static "js/main.js" %}></script>
+	<script src="https://sachinchoolur.github.io/lightGallery/lightgallery/js/lg-zoom.js"></script>
+
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<div class="header-top"><a href="{% url "agro:HomePage" %}" class="logo_url"></a></div>
+			<nav>
+				<ul>
+					<li><a href="{% url "agro:HomePage" %}"><span><!-- Главная --></span></a></li>
+					<li><a href="{% url "agro:CategoryList" %}"><!-- Продукция --></a>
+						<ul class="sub-menu">
+                            {% for topic in topics %}
+                                <li><a href="{% url "agro:CategoryPage" topic.id %}">{{ topic.name }}</a></li>
+                            {% endfor %}
+
+                        </ul>
+					</li>
+					<li><a href="{% url "agro:rewiews" %}"><!-- Отзывы --></a></li>
+					<li><a href="{% url "agro:news" %}"><!-- Новости --></a></li>
+					<li><a href="{% url "agro:contacts" %}"><!-- Контакты --></a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="bg-fix">
+			<div class="slider">
+				<ul class="bxslider">
+                    {% for item in items%}
+                        <li><a href="{{ item.url }}"><img src="{{ item.image.url }}" /></a></li>
+                    {% endfor %}
+				</ul>
+			</div>
+			    
+			<main>
+			    
+			  
+
+                {% block content %}
+
+				<div class="content_index">
+					<p>Основная специализация компании – реализация группы товаров сельскохозяйственного назначения и оборудования для водоснабжения.</p>
+					<p>Предприятие является официальным дистрибьютором продукции более 30 Украинских и Зарубежных производителей, предлагая потребителям широкий ассортимент продукции и минимальные сроки поставки.</p>
+					<p>Опытные менеджеры нашей компании всегда готовы оказать квалифицированную технологическую поддержку потребителям. Специалисты решают сложные задачи по комплектации, модернизации, доработке и поставке изделий для решения самых различных задач. Предприятие индивидуально подходит к производственным нуждам клиента, предлагая сервис Европейского уровня.</p>
+					<p>Гарантируем минимальные сроки между заказом продукции и ее отгрузкой потребителю, строгое соблюдение гарантийных обязательств и гибкую систему скидок.</p>
+					<p>«Торговый Дом «ТоргАгроСервис» совершенствует методику работы, наращивает ассортимент, гибко и оперативно реагируя на запросы рынка. Мы всегда готовы рассмотреть взаимовыгодные условия сотрудничества, ориентируясь на длительные партнерские отношения, а не на сиюминутную прибыль.</p>
+				</div>
+
+                        <div id="lightgallery">
+                             {% for homeimg in homes %}
+                                <a href="{{ homeimg.image.url }}"><img src="{{ homeimg.image.url }}" /></a>
+                            {% endfor %}
+                        </div>
+                        
+                        
+			</main>
+
+            {% endblock content %}
+        
+	{% include "agro/modals/phone_form.html" %}
+		<footer>
+			<div class="footer-nav">
+				<ul>
+                    <li><a href="{% url "agro:HomePage" %}"><span>Главная</span></a></li>
+					<li><a href="{% url "agro:CategoryList" %}">Продукция</a>
+						<ul class="sub-menu">
+                            {% for topic in topics %}
+                                <li><a href="{% url "agro:CategoryPage" topic.id %}">{{ topic.name }}</a></li>
+                            {% endfor %}
+
+                        </ul>
+					</li>
+					<li><a href="{% url "agro:rewiews" %}">Отзывы</a></li>
+					<li><a href="{% url "agro:news" %}">Новости</a></li>
+					<li><a href="{% url "agro:contacts" %}">Контакты</a></li>
+				</ul>
+			</div>
+			<div>Наш адрес: ул. Пушкина, 11, г. Бердянск, Запорожская обл., Украина, 71100</div>
+			<div>Телефоны: (097) 595-05-05, (050) 522-36-65, (06153) 7-000-5</div>
+			<div>Email: torgagroservice@gmail.com </div>
+			
+			
+		        <!-- <a id="link1" href="#"> -->
+		        	<img src="http://tiul-camp.ru/wp-content/uploads/2015/02/obratnyi-zvonok.png" class="callback-img" alt="">
+		        <!-- </a> -->
+		    <!-- <div class="callback-block">
+		        <div id="content">
+		            <form action="">
+		                <div class="title">
+		                    Заказать обратный звонок
+		                    <img src="http://static.fjcdn.com/pictures/Which_c0c2d2_5442440.png" alt="">
+		                </div>
+		                <fieldset>
+		                    <label for="name">Ваше имя</label>
+		                    <input type="text" id="name" placeholder="Ваше имя" required />
+		                    <label for="phone">Номер телефона</label>
+		                    <input type="text" id="phone" placeholder="Ваш номер телефона" required/>
+		                    <label for="question">Ваш вопрос</label>
+		                    <textarea id="question" rows="3"></textarea>
+		                    <input type="submit" value="Перезвоните мне" />
+		                </fieldset>
+		            </form>
+		        </div>
+		        <div class="success">
+		            Данные успешно отправлены!
+		        </div>
+		                </div> -->
+			
+			
+		</footer>
+	</div>
+</body>
+</html>

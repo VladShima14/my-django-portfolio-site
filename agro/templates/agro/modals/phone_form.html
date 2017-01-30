@@ -1,0 +1,30 @@
+<div class="callback-block">
+		    <div id="content">
+		    	<form action="{% url "agro:phone_send" %}" method="post">
+		    	    {% csrf_token %}
+		    	    {{ form.non_field_errors }}
+		    		<div class="title">
+		    			Заказать обратный звонок
+		    			<img src="http://static.fjcdn.com/pictures/Which_c0c2d2_5442440.png" alt="">
+		    		</div>
+		    		<fieldset>
+		    			<label for="name">Ваше имя</label>
+		    		
+		    			<input type="text" id="id_subject" name="subject" placeholder="Ваше имя" required />
+		    			<label for="phone">Номер телефона</label>
+		    			
+		    			<input type="text" id="id_phone" name="phone" placeholder="Ваш номер телефона" required/>
+		    			<label for="question">Ваш вопрос</label>
+		    		
+		    			<textarea id="id_messege" name="message" rows="3"></textarea>
+		    			<input type="submit" value="Перезвоните мне" />
+		    		</fieldset>
+		    	</form>
+		    </div>
+		    <div class="success">
+		    	Данные успешно отправлены!
+		    </div>
+	    </div>
+	        
+	        
+		</div>

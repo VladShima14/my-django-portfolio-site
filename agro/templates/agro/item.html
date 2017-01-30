@@ -1,0 +1,43 @@
+{% extends "agro/section.html" %}
+
+	{% block content %}
+		<main>
+
+            <div class="side-menu">
+               <ul>
+                   {% for cat in categories %}
+                        <li><a href="{% url 'agro:ProductPage' cat.topic.pk cat.slug %}" class="current-category"><h2>{{ cat.name }}</h2></a></li>
+                    {% endfor %}
+               </ul>
+
+
+            </div>
+
+        
+			<div class="article">
+				<div class="content">
+				    <div class="category-kostil">
+						<p>{% autoescape off %}{{ categ.top_text }}{% endautoescape %}</p>
+						<div class="item-picture">
+							<div id="lightgallery" class="img_item">
+								<a href="{{ categ.image.url }}">
+									<img  class=".item-picture" src="{{ categ.image.url }}" />
+								</a>
+							</div>
+						</div>
+					
+                    <div class="table_item">
+                        <table style="width:100%">
+                            {% autoescape off %}{{ categ.description }}{% endautoescape %}
+                        </table>
+                    </div>
+                    </div>
+				</div>
+                <div class="content">
+                    <p>{% autoescape off %}{{ categ.bot_text }}{% endautoescape %}</p>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div id="scroller" class="b-top" style="display: none;"><span class="b-top-but">наверх</span></div>
+		</main>
+	{% endblock content %}

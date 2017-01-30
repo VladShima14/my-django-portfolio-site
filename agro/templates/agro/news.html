@@ -1,0 +1,56 @@
+{% extends "agro/base.html" %}
+
+			{% block content %}
+    <main>
+				<div class="content">
+
+                            <!--<div class="subscribe-form">
+                                <div class="subscribe-text">Подписаться на новости</div>
+                                    <form method="POST">
+                                    {% csrf_token %}
+                                     Название компании:<br>
+                                    <input id="id_name" name="name" type="text" placeholder="Введите название компании">
+							        Электронная почта:<br>
+							        <input id="id_email" name="email" type="email" placeholder="Введите email">
+                                    Номер телефона:<br>
+							        <input id="id_phone" name="phone" type="text" value="+380">
+                                    <input type="submit" name="subscribe" value="Подписаться">
+                                </form>
+                            </div>-->
+                            
+                    {% for obj in object_list %}
+                            <div class="news">
+                                <a href="{% url 'agro:post_detail' id=obj.id %}">
+                                    <div class="qq">
+                                        {% if obj.image %}
+                                            <div class="pic"> <img src="{{ obj.image.url }}" alt="" /></div>
+                                        {% endif %}
+                                        <div class="text_news">
+                                            <h2>{{ obj.title }}</h2>
+                                            <div class="block-kostil"><p>{% autoescape off %}{{ obj.content}}{% endautoescape %}</p></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                                                        
+
+                    {% endfor %}
+                            <div class="subscribe-form">
+                                <div class="subscribe-text">Подписаться на новости</div>
+                                <form method="POST">
+                                    {% csrf_token %}
+                                     Название компании:
+                                    <input id="id_name" name="name" type="text" placeholder="Введите название компании">
+							        Электронная почта:
+							        <input id="id_email" name="email" type="email" placeholder="Введите email">
+                                    Номер телефона:
+							        <input id="id_phone" name="phone" type="text" value="+380">
+                                    <input type="submit" name="subscribe" value="Подписаться">
+                                </form>
+                            </div>
+
+				</div>
+			</main>
+
+{% endblock content %}

@@ -1,0 +1,17 @@
+#lightgallery{
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+
+#lightgallery a img{
+	height: 150px;
+	width: auto;
+	margin: 0 30px 40px;
+}
+
+
+#lightgallery a{
+	text-decoration: none;
+	margin-right: 0;
+}

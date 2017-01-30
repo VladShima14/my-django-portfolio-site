@@ -1,0 +1,17 @@
+{% extends "agro/base.html" %}
+    {% block content %}
+			<main class="feed-main">
+				<div class="article-main">
+					<div class="content-main">
+						<p>Уважаемые партнеры, просим вас высылать отзывы о сотрудничестве с нами, на наш e-mail: <span class="mail">torgagroservice@gmail.com</span></p>
+					</div>
+					<div id="lightgallery">
+                        {% for rewimg in rewitem %}
+						    <a href="{{ rewimg.image.url }}">
+							    <img src="{{ rewimg.image.url }}" />
+						    </a>
+                        {% endfor %}
+					</div>
+				</div>
+			</main>
+    {% endblock content %}

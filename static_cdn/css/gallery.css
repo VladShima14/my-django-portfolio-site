@@ -1,0 +1,31 @@
+#lightgallery{
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+
+#lightgallery a img{
+	height: 200px;
+	width: 160px;
+	margin: 0 30px 40px;
+}
+
+
+#lightgallery a{
+	text-decoration: none;
+	margin-right: 0;
+}
+
+.article #lightgallery a img{
+    height: 250px;
+	width: auto;
+	margin: 0 auto;
+}
+
+.article #lightgallery{
+    margin-top: 0;
+}
+
+.article .item-picture{
+    margin-top: -10px !important;
+}
