@@ -11,7 +11,7 @@ from .models import Post, SliderItem, Rewiew, Topic, Category, HomeItem
 def phone_send(request):
     
     from_email = settings.EMAIL_HOST_USER   
-    to_email = [from_email , 'mykolavlasov11@gmail.com ']
+    to_email = [from_email , '11@gmail.com ']
     
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -89,7 +89,7 @@ def news(request):
     queryset = Post.objects.all()
     
     from_email = settings.EMAIL_HOST_USER   
-    to_email = [from_email , 'mykolavlasov11@gmail.com ']
+    to_email = [from_email , '11@gmail.com ']
 
     if request.method == "POST":
         form = EmailForm(request.POST)
