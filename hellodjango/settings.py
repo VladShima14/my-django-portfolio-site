@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')fp2%2(g104e3*h+pyir7rccp%o6ec8fvd_vd8^qcmlr$_@yo3'
+SECRET_KEY = '#####'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['torgagro.beget.tech', 'torgagroservice.com.ua']
+ALLOWED_HOSTS = ['####', '#####']
 
 
 # Application definition
@@ -119,10 +119,10 @@ USE_TZ = True
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.beget.com'
-EMAIL_HOST_USER = 'torgagro@torgagroservice.com.ua'
-EMAIL_HOST_PASSWORD = '7uu6vDZf'
+EMAIL_HOST_USER = '#####'
+EMAIL_HOST_PASSWORD = '#####'
 EMAIL_PORT = 2525
-DEFAULT_FROM_EMAIL = 'torgagro@torgagroservice.com.ua'
+DEFAULT_FROM_EMAIL = '#####'
 
 
 
